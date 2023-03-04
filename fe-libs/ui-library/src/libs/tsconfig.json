@@ -1,0 +1,15 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+      "declaration": true,
+      "noEmit": false,
+      "declarationDir": "../../dist",
+      "noImplicitAny": true,
+      "strict": true,
+      "noUnusedParameters": true,
+      "strictNullChecks": true,
+      "isolatedModules": true
+    },
+    "include": [ "./*"]
+  }
+  
