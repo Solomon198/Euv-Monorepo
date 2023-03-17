@@ -5,6 +5,7 @@ declare module "@mui/material/styles" {
   interface Theme {
     toggle: () => void;
   }
+
   // allow configuration using `createTheme`
   interface ThemeOptions {
     toggle?: () => void;
@@ -25,7 +26,8 @@ export const themeDefination = (mode: Modes): ThemeOptions => {
       ...(mode === ThemeType.light
         ? {
             // palette values for light mode
-            primary: amber,
+            primary: { main: "#000000" },
+            secondary: { main: amber["100"] },
             divider: amber[200],
             text: {
               primary: "#000000",
@@ -38,7 +40,8 @@ export const themeDefination = (mode: Modes): ThemeOptions => {
           }
         : {
             // palette values for dark mode
-            primary: deepOrange,
+            primary: { main: "#ffffff" },
+            secondary: { main: "#66aabb" },
             divider: deepOrange[700],
             background: {
               default: "#000000",

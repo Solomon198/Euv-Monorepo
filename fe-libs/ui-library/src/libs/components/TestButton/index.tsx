@@ -1,13 +1,19 @@
-//@ts-ignore
+// @ts-expect-error
 import React from "react";
-import MuiButton from "@mui/material/Button";
+import Button from "@mui/material/Button";
+import { ButtonProps } from "@mui/material";
 
-type Props = {
+//Extending MUI button props to add our custom props
+export interface IButton extends ButtonProps {
   text: string;
+}
+const TestButton = (props: IButton): JSX.Element => {
+  const { ref, text } = props;
+  return (
+    <Button {...props} ref={ref}>
+      {text}
+    </Button>
+  );
 };
 
-const Button = ({ text }: Props) => {
-  return <MuiButton variant="contained">{text}</MuiButton>;
-};
-
-export default Button;
+export default TestButton;
