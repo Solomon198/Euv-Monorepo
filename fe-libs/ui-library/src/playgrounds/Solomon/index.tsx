@@ -14,7 +14,7 @@ const Playground: FC = () => {
         alignItems: "center",
       }}
     >
-      <Box>
+      <Box width={300}>
         <TestButton
           fullWidth
           variant="contained"
