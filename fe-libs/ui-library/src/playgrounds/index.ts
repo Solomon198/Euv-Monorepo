@@ -1,5 +1,5 @@
-import Solomon from "./Solomon";
+import Solomon from './Solomon'
 
 export default {
-  Solomon,
-};
+    Solomon,
+}

@@ -2,6 +2,9 @@
   "name": "@dixre/ui-library",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -19,6 +22,7 @@
     "@types/react-dom": "^18.0.11",
     "@types/rebass__forms": "^4.0.6",
     "eslint-config-airbnb-base": "^15.0.0",
+    "lint-staged": "^13.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
@@ -26,15 +30,18 @@
     "rebass": "^4.0.7",
     "styled-components": "^5.3.8",
     "theme-ui": "^0.15.5",
-    "typescript": "*",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rimraf dist && npm run build:rollup",
+    "build:rollup": "rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "echo 'welcone'"
+    "lint": "eslint src/**/*.{ts,tsx} --fix && npm run format",
+    "format": "prettier --write src/**/*",
+    "pre-commit": "lint-staged",
+    "pre-push": "npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -54,14 +61,29 @@
       "last 1 safari version"
     ]
   },
+  "lint-staged": {
+    "**/*.{ts,tsx}": ["npm run lint"]
+  },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "eslint": "^8.35.0",
-    "eslint-config-standard-with-typescript": "^34.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-image": "^3.0.2",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "babel-plugin-annotate-pure-calls": "^0.4.0",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
-    "prettier": "2.8.4"
+    "prettier": "2.8.4",
+    "rimraf": "^4.4.1",
+    "rollup-plugin-multi-input": "^1.4.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^5.0.3"
   }
 }
