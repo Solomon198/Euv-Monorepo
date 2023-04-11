@@ -8,11 +8,9 @@
     "**/*.{ts,tsx}": "tslint"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
     "lerna": "^6.5.1"
   },
   "scripts": {
-    "prepare": "husky install",
     "build:libs": "npm run clean; npm ci; lerna run",
     "clean": "npm run clean:node_modules; npm run clean:build",
     "clean:build": "find . -name 'build' -type d -prune -print -exec rm -rf '{}' \\;",
