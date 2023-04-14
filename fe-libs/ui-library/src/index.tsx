@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Playgrounds from 'playgrounds'
 import ThemeProvider from 'theme'
+import { IconProvider } from './components/Icon'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import '@fontsource/roboto/300.css'
@@ -70,9 +71,11 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
     <React.StrictMode>
-        <ThemeProvider>
-            <RouterProvider router={routes} />
-        </ThemeProvider>
+        <IconProvider>
+            <ThemeProvider>
+                <RouterProvider router={routes} />
+            </ThemeProvider>
+        </IconProvider>
     </React.StrictMode>
 )
 

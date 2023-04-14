@@ -9,6 +9,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@fontsource/roboto": "^4.5.8",
+    "@iconscout/react-unicons": "^2.0.2",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.11",
     "@mui/styled-engine-sc": "^5.11.11",
@@ -29,19 +30,18 @@
     "react-scripts": "5.0.1",
     "rebass": "^4.0.7",
     "styled-components": "^5.3.8",
-    "theme-ui": "^0.15.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "rimraf dist && npm run build:rollup",
     "build:rollup": "rollup -c",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{ts,tsx} --fix && npm run format",
     "format": "prettier --write src/**/*",
     "pre-commit": "lint-staged",
-    "pre-push": "npm run build"
+    "pre-push": "npm run build && npm run test"
   },
   "eslintConfig": {
     "extends": [

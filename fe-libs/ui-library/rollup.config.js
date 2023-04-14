@@ -14,6 +14,10 @@ export default [
   {
     input: [
       { [path.parse(pkg.module).name]: "src/libs/index.ts"},
+      {
+        "defaultIconImport.unicorn":
+        "src/libs/components/Icon/defaultIconImport.unicorn.ts"
+      }
     ],
     plugins: [
       multiInput(),

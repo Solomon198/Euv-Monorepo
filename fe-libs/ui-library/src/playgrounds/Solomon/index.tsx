@@ -1,7 +1,7 @@
 import { type FC } from 'react'
-import { TestButton } from 'libs/components'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
+import { Icon } from '../../components/Icon'
 
 const Playground: FC = () => {
     return (
@@ -13,13 +13,12 @@ const Playground: FC = () => {
                 alignItems: 'center',
             }}
         >
-            <Box width={300}>
-                <TestButton
-                    fullWidth
-                    variant="contained"
-                    text="Sample"
-                    color="primary"
-                />
+            <Box>
+                <Icon size={50} color="primary" name="Calender" />
+                <Icon size={100} color="secondary" name="Calender" />
+                <Icon size={150} color="primary" name="Calender" />
+                <Icon size={200} color="secondary" name="Calender" />
+                <Icon size={250} color="primary" name="Calender" />
             </Box>
         </Container>
     )

@@ -6,10 +6,13 @@ import {
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import ThemeProvider from 'theme'
+import { IconProvider } from '../../../components/Icon'
 
 const AllProviders = ({ children }: any): JSX.Element => (
     <MemoryRouter>
-        <ThemeProvider>{children}</ThemeProvider>
+        <IconProvider>
+            <ThemeProvider>{children}</ThemeProvider>
+        </IconProvider>
     </MemoryRouter>
 )
 
