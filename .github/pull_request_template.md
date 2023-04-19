@@ -13,7 +13,6 @@ Please delete options that are not relevant.
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
-
 ## Type of change
 
 Please attatch screenshots of what you have done.
@@ -25,11 +24,16 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] Test A
 - [ ] Test B
 
+# Test Screen Shots
+
+Screen shots of tests conducted
+
 **Test Configuration**:
-* Firmware version:
-* Hardware:
-* Toolchain:
-* SDK:
+
+- Firmware version:
+- Hardware:
+- Toolchain:
+- SDK:
 
 # Checklist:
 

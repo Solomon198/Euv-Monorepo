@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import {
     createTheme,
-    ThemeProvider as MuiThemeProvider,
-} from '@mui/material/styles'
+    ThemeProvider as ThemeComponentProvider,
+} from '../libs/components/Theme'
 import { ThemeType, themeDefination, type Modes } from './theme'
 
 interface Props {
-    children: string | JSX.Element | JSX.Element[]
+    children: JSX.Element | any | JSX.Element[]
 }
 
 const ThemeProvider = ({ children }: Props): JSX.Element => {
@@ -20,7 +20,11 @@ const ThemeProvider = ({ children }: Props): JSX.Element => {
         ...themeDefination(mode),
         toggle,
     })
-    return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+    return (
+        <ThemeComponentProvider theme={theme}>
+            {children}
+        </ThemeComponentProvider>
+    )
 }
 
 export default ThemeProvider

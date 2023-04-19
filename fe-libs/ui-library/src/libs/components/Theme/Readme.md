@@ -1,7 +1,50 @@
-import { type ThemeOptions } from '../libs/components/Theme'
-import { amber, grey, deepOrange } from '@mui/material/colors'
+## Theme Component
 
-declare module '@mui/material/styles' {
+> To use this theme component Simply import `ThemeProvider` and pass theme configuration base on `mui` `ThemeOption`
+> You can also overide or extend some of the following props exposed by this generic theme component such as `ThemeOption`, `Theme`;
+> Other Utilities such as `useTheme`, `styled` and `createTheme` functions are also exposed
+
+### **Example**
+
+**Configure Theme Like This**
+
+```js
+import { useState } from 'react'
+import {
+    createTheme,
+    ThemeProvider as ThemeComponentProvider,
+} from '../genericTheme' // import from where generic theme is exported
+import { ThemeType, themeDefination, type Modes } from './theme'
+
+interface Props {
+    children: JSX.Element | any | JSX.Element[];
+}
+
+const ThemeProvider = ({ children }: Props): JSX.Element => {
+    const [mode, setMode] = useState < Modes > ThemeType.light
+    const toggle = (): void => {
+        const nextMode =
+            mode === ThemeType.light ? ThemeType.dark : ThemeType.light
+        setMode(nextMode)
+    }
+    const theme = createTheme({
+        ...themeDefination(mode),
+        toggle,
+    })
+    return (
+        <ThemeComponentProvider theme={theme}>
+            {children}
+        </ThemeComponentProvider>
+    )
+}
+
+export default ThemeProvider
+```
+
+```js
+
+// you can extend or overide type definitions like this, but in our case it will be from @dixre/ui-library which is the target
+ declare module '@mui/material/styles' {
     interface Theme {
         toggle: () => void
     }
@@ -55,3 +98,5 @@ export const themeDefination = (mode: Modes): ThemeOptions => {
         },
     }
 }
+
+```

@@ -1,15 +1,5 @@
 import { type Theme } from '@mui/material'
-
-// TODO
-// . This will be moved to the generic theme definition.
-export const colorNames = [
-    'primary',
-    'secondary',
-    'text',
-    'background',
-    'divider',
-] as const
-export type ColorNames = (typeof colorNames)[number]
+import { type ColorNames } from '../Theme'
 
 const getPalleteColor = (
     theme: Theme,

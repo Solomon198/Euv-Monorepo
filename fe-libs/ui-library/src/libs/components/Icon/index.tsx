@@ -3,7 +3,8 @@ import { useTheme } from '@mui/material'
 
 import type { IIconNames, TIconContext, TIconNames } from './type'
 
-import { type ColorNames, getPalleteColor } from './utils'
+import { type ColorNames } from '../Theme'
+import { getPalleteColor } from './utils'
 
 export type { IIconNames, TIconContext, TIconNames }
 
